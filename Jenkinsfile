@@ -4,7 +4,7 @@ pipeline{
     environment{
         DOCKER_HUB = "https://hub.docker.com/"
         IMAGE_NAME = "hamsw1005/hsw_nhn_cloud" + ":" + "${env.TAG}"
-        DOCKER_HUB_CREDENTIALS = credentials("docker_hub_credentials")
+        DOCKER_HUB_CREDENTIALS = "docker_hub_credentials"
     }
     
     stages{
@@ -43,8 +43,8 @@ pipeline{
         stage("Dockerize"){
             steps{
                 script{
-                    docker.withRegistry(DOCKER_HUB, DOCKER_HUB_CREDENTIALS){
-                    def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile ./')
+                    docker.withRegistry(${DOCKER_HUB}, ${DOCKER_HUB_CREDENTIALS}){
+                        def dockerImage = docker.build(${IMAGE_NAME}, '-f ./Dockerfile ./')
                     docker.push()
                     }
                 }
