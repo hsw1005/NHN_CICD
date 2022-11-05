@@ -10,7 +10,7 @@ pipeline{
     
     environment{
         DOCKER_HUB = 'https://index.docker.io/v1/' //'https://hub.docker.com/'
-        IMAGE_NAME = 'hamsw1005/hsw_nhn_cloud' + ':' + '${env.TAG}'
+        IMAGE_NAME = 'hamsw1005/hsw_nhn_cloud'
         DOCKER_HUB_CREDENTIALS = 'docker_hub_credentials'
     }
     
@@ -52,7 +52,7 @@ pipeline{
                 script{
                     docker.withRegistry(DOCKER_HUB, DOCKER_HUB_CREDENTIALS){
                         def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile .')
-                        dockerImage.push()
+                        dockerImage.push('${env.TAG}')
                     }
                 }
             }
