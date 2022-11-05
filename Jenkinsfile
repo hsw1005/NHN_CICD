@@ -1,9 +1,11 @@
 pipeline{
     agent any
     
-    // environment{
-    //
-    // }
+    environment{
+        DOCKER_HUB = "https://hub.docker.com/
+        IMAGE_NAME = "hamsw1005/hsw_nhn_cloud" + ":" + "${env.TAG}"
+        DOCKER_HUB_CREDENTIALS = credentials("docker_hub_credentials")
+    }
     
     stages{
         stage("pre-stage, version check"){
@@ -38,11 +40,14 @@ pipeline{
                 sh 'ls -alh'
             }
         }
-//         stage("Dockerize"){
-//             steps{
-//                 docker.withRegistry()
-//             }
-//         }
+        stage("Dockerize"){
+            steps{
+                docker.withRegistry(DOCKER_HUB, DOCKER_HUB_CREDENTIALS){
+                    def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile ./')
+                    docker.push()
+                }
+            }
+        }
         
     }
 }
