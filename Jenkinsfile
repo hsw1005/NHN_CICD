@@ -16,15 +16,15 @@ pipeline{
                 sh 'pwd'
             }
          }
-//         stage("Git Clone"){
-//             steps{
-//                 git url: "https://github.com/hsw1005/CICD_Test.git",
-//                 branch: "main",
-//                 credentialsId: "github_credentials"
+        stage("Git Clone"){
+            steps{
+                git url: "https://github.com/hsw1005/NHN_CICD.git",
+                branch: "main",
+                credentialsId: "github_credentials"
                 
-//                 sh 'ls -alh'
-//             }
-//         }
+                sh 'ls -alh'
+            }
+        }
         stage("Gradle Build"){
             steps{
                 script{
