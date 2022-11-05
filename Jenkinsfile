@@ -50,8 +50,8 @@ pipeline{
         stage("Dockerize"){
             steps{
                 script{
-                    docker.withRegistry(DOCKER_HUB, $DOCKER_HUB_CREDENTIALS){
-                        def dockerImage = docker.build($IMAGE_NAME, '-f ./Dockerfile .')
+                    docker.withRegistry(env.DOCKER_HUB, env.DOCKER_HUB_CREDENTIALS){
+                        def dockerImage = docker.build(env.IMAGE_NAME, '-f ./Dockerfile .')
                     docker.push()
                     }
                 }
