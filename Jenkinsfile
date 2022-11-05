@@ -1,11 +1,12 @@
 pipeline{
-    agent {
-        docker{
-            image "gradle:jdk8"
-            registryUrl "https://hub.docker.com/"
-            registryCredentialsId "docker_hub_credentials"
-        }
-    }
+    agent any
+    //agent {
+    //    docker{
+    //        image "gradle:jdk8"
+    //        registryUrl "https://hub.docker.com/"
+    //        registryCredentialsId "docker_hub_credentials"
+    //    }
+    //}
     
     environment{
         DOCKER_HUB = "https://hub.docker.com/"
@@ -49,8 +50,8 @@ pipeline{
         stage("Dockerize"){
             steps{
                 script{
-                    docker.withRegistry(DOCKER_HUB, DOCKER_HUB_CREDENTIALS){
-                        def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile .')
+                    docker.withRegistry($DOCKER_HUB, $DOCKER_HUB_CREDENTIALS){
+                        def dockerImage = docker.build($IMAGE_NAME, '-f ./Dockerfile .')
                     docker.push()
                     }
                 }
