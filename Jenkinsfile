@@ -17,6 +17,19 @@ pipeline{
     stages{
         stage("pre-stage, version check"){
             steps{
+                script{
+                    try{
+                    echo '${env.DOCKER_HUB_CREDENTIALS}'
+                    echo DOCKER_HUB_CREDENTIALS
+                    echo $DOCKER_HUB_CREDENTIALS                        
+                    }
+                    catch(e){
+                        sh 'catch'
+                        
+                    }
+
+                }
+               
                 cleanWs()
                 sh 'pwd'
                 sh 'java -version'
