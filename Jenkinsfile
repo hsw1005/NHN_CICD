@@ -1,10 +1,16 @@
 pipeline{
-    agent any
+    agent {
+        docker{
+            image "gradle:jdk8"
+            registryUrl "https://hub.docker.com/"
+            registryCredentialsId "docker_hub_credentials"
+        }
+    }
     
     environment{
         DOCKER_HUB = "https://hub.docker.com/"
         IMAGE_NAME = "hamsw1005/hsw_nhn_cloud" + ":" + "${env.TAG}"
-        DOCKER_HUB_CREDENTIALS = "docker_hub_key"
+        DOCKER_HUB_CREDENTIALS = "docker_hub_credentials"
     }
     
     stages{
