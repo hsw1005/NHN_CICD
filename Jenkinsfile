@@ -56,6 +56,7 @@ pipeline{
                         dockerImage.push(env.TAG)
                     }
                 }
+                echo 'hi'
             }
         }
     }
