@@ -55,6 +55,7 @@ pipeline{
                         def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile .')
                         dockerImage.push(env.TAG)
                     }
+                    echo 'hi'
                 }
             }
         }
