@@ -11,7 +11,7 @@ pipeline{
     environment{
         DOCKER_HUB = "https://hub.docker.com/"
         IMAGE_NAME = "hamsw1005/hsw_nhn_cloud" + ":" + "${env.TAG}"
-        DOCKER_HUB_CREDENTIALS = "hamsw1005"
+        DOCKER_HUB_CREDENTIALS = "docker_hub_credentials"
     }
     
     stages{
