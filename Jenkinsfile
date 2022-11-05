@@ -14,8 +14,8 @@ pipeline{
                 sh 'pwd'
                 sh 'java -version'
                 sh 'gradle -v'
-                sh 'whoami'
-                sh 'pwd'
+                
+                echo "Image Name is : ${IMAGE_NAME}"
             }
          }
         stage("Git Clone"){
@@ -44,7 +44,7 @@ pipeline{
             steps{
                 script{
                     docker.withRegistry(DOCKER_HUB, DOCKER_HUB_CREDENTIALS){
-                        def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile ./')
+                        def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile .')
                     docker.push()
                     }
                 }
