@@ -47,7 +47,7 @@ pipeline{
                 sh 'ls -alh'
             }
         }
-        stage("Dockerize"){
+        stage("Dockerize & Push"){
             steps{
                 script{
                     docker.withRegistry(DOCKER_HUB, DOCKER_HUB_CREDENTIALS){
