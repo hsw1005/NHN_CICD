@@ -13,6 +13,7 @@ pipeline{
                 sh 'java -version'
                 sh 'gradle -v'
                 sh 'whoami'
+                sh 'pwd'
             }
          }
 //         stage("Git Clone"){
