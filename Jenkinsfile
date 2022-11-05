@@ -52,7 +52,7 @@ pipeline{
                 script{
                     docker.withRegistry(DOCKER_HUB, DOCKER_HUB_CREDENTIALS){
                         def dockerImage = docker.build(IMAGE_NAME, '-f ./Dockerfile .')
-                        dockerImage.push('${env.TAG}')
+                        dockerImage.push('env.TAG')
                     }
                 }
             }
