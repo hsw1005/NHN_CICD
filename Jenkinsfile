@@ -10,7 +10,7 @@ pipeline{
     
     environment{
         DOCKER_HUB = 'https://index.docker.io/v1/' //'https://hub.docker.com/'
-        IMAGE_NAME = 'hamsw1005/hsw_nhn_cloud' + ':' + env.TAG
+        IMAGE_NAME = 'hamsw1005/hsw_nhn_cloud' + ':' + '$env.TAG'
         DOCKER_HUB_CREDENTIALS = 'docker_hub_credentials'
     }
     
