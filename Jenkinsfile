@@ -14,7 +14,7 @@ pipeline{
                 sh 'gradle -v'
                 sh 'whoami'
             }
-//         }
+         }
 //         stage("Git Clone"){
 //             steps{
 //                 git url: "https://github.com/hsw1005/CICD_Test.git",
