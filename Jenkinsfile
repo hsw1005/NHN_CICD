@@ -1,13 +1,13 @@
 pipeline{
-    //agent any
-    agent {
-        docker{
-            image "gradle:jdk8"
-            args "-u root:root -v /var/run/docker.sock:/var/run/docker.sock"
-            registryUrl "https://index.docker.io/"
-            registryCredentialsId "docker_hub_credentials"
-        }
-    }
+    agent any
+    //agent {
+        //docker{
+        //    image "gradle:jdk8"
+        //    args "-u root:root -v /var/run/docker.sock:/var/run/docker.sock"
+        //    registryUrl "https://index.docker.io/"
+        //    registryCredentialsId "docker_hub_credentials"
+        //}
+    //}
     
     environment{
         DOCKER_HUB = 'https://index.docker.io/v1/' //'https://hub.docker.com/'
