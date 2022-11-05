@@ -11,25 +11,12 @@ pipeline{
     environment{
         DOCKER_HUB = "https://hub.docker.com/"
         IMAGE_NAME = "hamsw1005/hsw_nhn_cloud" + ":" + "${env.TAG}"
-        DOCKER_HUB_CREDENTIALS = "docker_hub_credentials"
+        DOCKER_HUB_CREDENTIALS = "hamsw1005"
     }
     
     stages{
         stage("pre-stage, version check"){
             steps{
-                script{
-                    try{
-                    echo '${env.DOCKER_HUB_CREDENTIALS}'
-                    echo DOCKER_HUB_CREDENTIALS
-                    echo $DOCKER_HUB_CREDENTIALS                        
-                    }
-                    catch(e){
-                        sh 'catch'
-                        
-                    }
-
-                }
-               
                 cleanWs()
                 sh 'pwd'
                 sh 'java -version'
