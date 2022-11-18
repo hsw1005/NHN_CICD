@@ -1,6 +1,8 @@
-FROM gradle:jdk8
+FROM python:3.8.5-alpine3.12
 
-COPY ./build ./
-RUN pwd
+WORKDIR /usr/src/app
 
-ENTRYPOINT ['ls', '-alh']
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD [ "python", "app.py" ]
