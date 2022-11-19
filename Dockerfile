@@ -16,9 +16,9 @@ COPY . .
 
 RUN mkdir ~/.pip
 
-
-RUN pip install --upgrade pip --trusted-host pypi.org --trusted-host files.pythonhosted.org
-RUN pip install -r requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
+RUN pip install --upgrade pip #--trusted-host pypi.org --trusted-host files.pythonhosted.org
+RUN pip install -r requirements.txt #--trusted-host pypi.org --trusted-host files.pythonhosted.org
+EXPOSE 5000
 
 CMD ["python", "app.py"]
 
