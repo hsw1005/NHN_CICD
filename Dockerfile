@@ -21,7 +21,7 @@ RUN pip install -r requirements.txt #--trusted-host pypi.org --trusted-host file
 EXPOSE 5000
 
 RUN pip install ./Demoday_Application-1.0-py3-none-any.whl
-RUN python ./application.app.py
+RUN python ./application/app.py
 
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "application.wsgi:app", "--daemon", "--reload"]
 
