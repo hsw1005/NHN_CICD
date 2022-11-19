@@ -2,8 +2,8 @@ properties([pipelineTriggers([githubPush()])])
 
 pipeline {
     environment {
-        dockerRepo = ""
-        dockerCredentials = ''
+        dockerRepo = "hamsw1005/python"
+        dockerCredentials = "docker_hub_credentials"
         dockerImageVersioned = ""
         dockerImageLatest = ""
     }
