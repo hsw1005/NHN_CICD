@@ -23,5 +23,5 @@ RUN pip install -r requirements.txt --trusted-host pypi.org --trusted-host files
 CMD ["python", "app.py"]
 
 
-ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "application.wsgi:app", "--daemon", "--reload"]
+#ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:5000", "application.wsgi:app", "--daemon", "--reload"]
 
