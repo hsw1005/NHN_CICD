@@ -20,7 +20,8 @@ RUN pip install --upgrade pip #--trusted-host pypi.org --trusted-host files.pyth
 RUN pip install -r requirements.txt #--trusted-host pypi.org --trusted-host files.pythonhosted.org
 EXPOSE 5000
 
-CMD ["pip", "install, "./Demoday_Application-1.0-py3-none-any.whl"]
-CMD ["python", "./application/app.py"]
+RUN pip install ./Demoday_Application-1.0-py3-none-any.whl
+RUN python ./application.app.py
+
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "application.wsgi:app", "--daemon", "--reload"]
 
