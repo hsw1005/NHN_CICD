@@ -11,7 +11,7 @@ spec:
   - host: 133.186.152.235.nip.io
     http:
       paths:
-      - path: /
+      - path: /test
         pathType: Prefix
         backend:
           service:
