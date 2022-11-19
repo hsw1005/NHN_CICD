@@ -4,6 +4,7 @@ import os
 from flask import Flask
 
 app = Flask(__name__)
+CORS(app)
 podname = os.uname()[1]
 
 @app.route("/")
@@ -11,7 +12,7 @@ def index():
     return " Container hsw | POD Working : " + podname + " | v=1\n"
 
 @app.route("/test")
-def routeto():
+def helloworld():
     return render_template('index.html')
 
 if __name__ == "__main__":
