@@ -8,7 +8,7 @@ podname = os.uname()[1]
 
 @app.route("/")
 def index():
-    return render_template('test.html')
+    return render_template('index.html')
     #return " Container hsw | POD Working : " + podname + " | v=1\n"
 
 if __name__ == "__main__":
